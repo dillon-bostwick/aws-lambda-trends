@@ -40,7 +40,6 @@ def show_graph(single_url_index):
 	for url_obj in urls_to_plot:
 		plt.plot(url_obj['timestamps'], url_obj['rankings'], label=url_obj['name'])
 
-	# ax.set_xticklabels([ unixToHuman(ts) for ts in ax.get_xticks() ])
 	plt.xticks( rotation=25 )
 	plt.gca().invert_yaxis()
 	plt.legend(bbox_to_anchor=(1, 1))

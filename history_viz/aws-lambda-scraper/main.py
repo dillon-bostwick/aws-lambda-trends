@@ -8,9 +8,10 @@ serp_table = boto3.resource('dynamodb').Table('serps')
 serp_updates_topic = boto3.resource('sns').Topic('arn:aws:sns:us-east-1:995452415820:serp_updates')
 
 QUERY = 'steak+restaurants+near+me'
+LOCATION = 'new york'
 
 def get_serp_urls(page_start):
-	google_req = urllib2.Request('http://www.google.com/search?q=' + QUERY + '&near=Atlanta&uule=w+CAIQICINVW5pdGVkIFN0YXRlcw&start=' + str(page_start))
+	google_req = urllib2.Request('http://www.google.com/search?q=' + QUERY + '&near=' + LOCATION + '&uule=w+CAIQICINVW5pdGVkIFN0YXRlcw&start=' + str(page_start))
 	
 	# Google expects User-Agent or else 403
 	google_req.add_header('User-Agent', 'Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.11 (KHTML, like Gecko) Chrome/23.0.1271.95 Safari/537.11')
